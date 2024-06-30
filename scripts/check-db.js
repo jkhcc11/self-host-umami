@@ -67,6 +67,7 @@ async function checkDatabaseVersion() {
 async function checkV1Tables() {
   try {
     // check for v1 migrations before v2 release date
+      console.log('checkV1Tables start');
     const record =
       await prisma.$queryRaw`select * from _prisma_migrations where started_at < '2023-04-17'`;
 
@@ -76,8 +77,11 @@ async function checkV1Tables() {
       );
       process.exit(1);
     }
+
+         console.log('checkV1Tables end');
   } catch (e) {
     // Ignore
+      error(e.message);
   }
 }
 
