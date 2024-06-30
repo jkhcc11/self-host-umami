@@ -34,7 +34,7 @@ jobs:
       - name: Build step
         run: "console.log(Deno.env.get('DATABASE_URL')) && yarn build"
         env:
-            DATABASE_URL: Deno.env.get("DATABASE_URL")
+            DATABASE_URL: secrets.DATABASE_URL
             DATABASE_TYPE: postgresql
 
       - name: Upload to Deno Deploy
