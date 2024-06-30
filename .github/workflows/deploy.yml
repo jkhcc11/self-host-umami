@@ -33,6 +33,8 @@ jobs:
 
       - name: Build step
         run: "yarn build"
+        env:
+            DATABASE_URL: Deno.env.get("DATABASE_URL")
 
       - name: Upload to Deno Deploy
         uses: denoland/deployctl@v1
