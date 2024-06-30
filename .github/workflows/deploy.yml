@@ -32,7 +32,7 @@ jobs:
         run: "npm install --global yarn & yarn install"
 
       - name: Build step
-        run: "yarn build"
+        run: "console.log(Deno.env.get('DATABASE_URL')) && yarn build"
         env:
             DATABASE_URL: Deno.env.get("DATABASE_URL")
             DATABASE_TYPE: postgresql
