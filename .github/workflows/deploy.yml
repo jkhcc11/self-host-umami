@@ -35,6 +35,7 @@ jobs:
         run: "yarn build"
         env:
             DATABASE_URL: Deno.env.get("DATABASE_URL")
+            DATABASE_TYPE: postgresql
 
       - name: Upload to Deno Deploy
         uses: denoland/deployctl@v1
